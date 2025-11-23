@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://l74fmge4qy6i"]
+[gd_scene load_steps=40 format=3 uid="uid://l74fmge4qy6i"]
 
 [ext_resource type="PackedScene" uid="uid://xd3spey3oh72" path="res://scenes/player.tscn" id="1_08m1a"]
 [ext_resource type="Script" uid="uid://c5wrm2suo43o5" path="res://scripts/camerabounds.gd" id="1_k2k6q"]
@@ -16,6 +16,15 @@
 [ext_resource type="Texture2D" uid="uid://uosqualv17vy" path="res://assets/bgs/Level2.png" id="14_rv0xs"]
 [ext_resource type="PackedScene" uid="uid://b4v6iknp4nm7o" path="res://scenes/platformbw_7.tscn" id="15_2gxg2"]
 [ext_resource type="Script" uid="uid://686n85lcaiiu" path="res://scripts/zoom_zone.gd" id="16_2gxg2"]
+[ext_resource type="PackedScene" uid="uid://d0754sb1oe8bh" path="res://scenes/platformbw_1.tscn" id="17_pgqpv"]
+[ext_resource type="PackedScene" uid="uid://8gh6frbq7o7e" path="res://scenes/platformbw_3.tscn" id="18_x8oxx"]
+[ext_resource type="PackedScene" uid="uid://bx7h0ahc3qpui" path="res://scenes/platformbw_5.tscn" id="19_7geku"]
+[ext_resource type="PackedScene" uid="uid://csjfvvle0y67b" path="res://scenes/platformcolour_0.tscn" id="20_bp6yj"]
+[ext_resource type="PackedScene" uid="uid://doro1the6d4p7" path="res://scenes/platformcolour_2.tscn" id="21_nllk3"]
+[ext_resource type="PackedScene" uid="uid://80kfhc01o5n4" path="res://scenes/platformcolour_3.tscn" id="22_jam8s"]
+[ext_resource type="PackedScene" uid="uid://w81dmvrcrxom" path="res://scenes/platformcolour_4.tscn" id="23_hyi7h"]
+[ext_resource type="PackedScene" uid="uid://4xdia17q1ue7" path="res://assets/platforms/platformcolour_6.tscn" id="24_jam8s"]
+[ext_resource type="Texture2D" uid="uid://cov5rmhmnkodl" path="res://assets/bgs/bg5.png" id="24_nllk3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdeh8"]
 size = Vector2(5107.25, 104.75)
@@ -49,6 +58,15 @@ size = Vector2(429.48148, 106.1113)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0s6k"]
 size = Vector2(379.4815, 588.22205)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4o3qg"]
+size = Vector2(403.25928, 19.40744)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jam8s"]
+size = Vector2(1535.3002, 444.16663)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyi7h"]
+size = Vector2(1532.7998, 1023.00024)
 
 [node name="Ruins" type="Node2D"]
 script = ExtResource("1_k2k6q")
@@ -166,10 +184,6 @@ scale = Vector2(0.9, 0.9)
 [node name="Killzone" parent="Level1" instance=ExtResource("10_k2k6q")]
 position = Vector2(19.699804, 775.7)
 
-[node name="platformbw6_2" parent="Level1" instance=ExtResource("9_bit6c")]
-position = Vector2(0.99980164, 482.60004)
-scale = Vector2(0.9, 0.9)
-
 [node name="platformbw4" parent="Level1" instance=ExtResource("11_0oy4v")]
 position = Vector2(-265.50015, 334.30008)
 scale = Vector2(0.7, 0.7)
@@ -208,11 +222,15 @@ scale = Vector2(0.9, 0.9)
 
 [node name="GrapplePoint" parent="Level1" instance=ExtResource("2_vdeh8")]
 position = Vector2(-25.100197, -721.8999)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.1, 0.1)
 
 [node name="platformbw4_3" parent="Level1" instance=ExtResource("11_0oy4v")]
 position = Vector2(-266.80017, -526.2999)
 scale = Vector2(0.7, 0.7)
+
+[node name="platformbw7" parent="Level1" instance=ExtResource("9_bit6c")]
+position = Vector2(-11.9002, 470.70007)
+scale = Vector2(0.9, 0.9)
 
 [node name="Climb_0" type="Area2D" parent="."]
 script = ExtResource("3_vdeh8")
@@ -227,7 +245,7 @@ zoom = Vector2(0.225, 0.225)
 
 [node name="CameraLimits" type="ReferenceRect" parent="."]
 offset_left = 19032.0
-offset_top = -35366.0
+offset_top = -44939.0
 offset_right = 24211.0
 offset_bottom = 3489.0
 editor_only = false
@@ -263,19 +281,19 @@ position = Vector2(-0.77770996, 535.22205)
 shape = SubResource("RectangleShape2D_f0s6k")
 
 [node name="GrapplePoint" parent="Level2" instance=ExtResource("2_vdeh8")]
-position = Vector2(56.222225, 695.8519)
+position = Vector2(20.296299, 673.1112)
 scale = Vector2(0.1, 0.1)
 
 [node name="GrapplePoint2" parent="Level2" instance=ExtResource("2_vdeh8")]
-position = Vector2(-66.59259, 614.00006)
+position = Vector2(-60.888885, 574.2964)
 scale = Vector2(0.1, 0.1)
 
 [node name="platformbw7_2" parent="Level2" instance=ExtResource("15_2gxg2")]
-position = Vector2(-259.48148, 571.77783)
+position = Vector2(-225.11111, 575.92596)
 scale = Vector2(0.8, 0.8)
 
 [node name="GrapplePoint3" parent="Level2" instance=ExtResource("2_vdeh8")]
-position = Vector2(-67.77777, 482.37045)
+position = Vector2(-66.96295, 446.59268)
 scale = Vector2(0.1, 0.1)
 
 [node name="GrapplePoint4" parent="Level2" instance=ExtResource("2_vdeh8")]
@@ -283,9 +301,132 @@ position = Vector2(82.296295, 449.0371)
 scale = Vector2(0.1, 0.1)
 
 [node name="GrapplePoint5" parent="Level2" instance=ExtResource("2_vdeh8")]
-position = Vector2(132.88889, 360.37045)
+position = Vector2(49.703697, 330.51862)
 scale = Vector2(0.1, 0.1)
 
-[node name="GrapplePoint6" parent="Level2" instance=ExtResource("2_vdeh8")]
-position = Vector2(61.851845, 286.51862)
+[node name="platformbw1" parent="Level2" instance=ExtResource("17_pgqpv")]
+position = Vector2(37.037037, 210.88889)
+scale = Vector2(0.4, 0.4)
+
+[node name="platformbw1_2" parent="Level2" instance=ExtResource("17_pgqpv")]
+position = Vector2(140.44444, 210.88889)
+scale = Vector2(0.4, 0.4)
+
+[node name="platformbw7_3" parent="Level2" instance=ExtResource("15_2gxg2")]
+position = Vector2(-160.14813, 37.8519)
+scale = Vector2(0.8, 0.8)
+
+[node name="platformbw3" parent="Level2" instance=ExtResource("18_x8oxx")]
+position = Vector2(-45.555576, 107.77779)
+rotation = 3.1415927
+scale = Vector2(0.3, 0.3)
+
+[node name="platformbw4" parent="Level2" instance=ExtResource("11_0oy4v")]
+position = Vector2(187.48146, -152.88887)
+scale = Vector2(0.7, 0.7)
+
+[node name="platformbw7_4" parent="Level2" instance=ExtResource("15_2gxg2")]
+position = Vector2(-74.222206, -335.037)
+scale = Vector2(0.8, 0.8)
+
+[node name="platformbw5" parent="Level2" instance=ExtResource("19_7geku")]
+position = Vector2(99.25926, -82.37038)
+scale = Vector2(0.3, 0.3)
+
+[node name="platformbw5_2" parent="Level2" instance=ExtResource("19_7geku")]
+position = Vector2(30.000004, -82.37038)
+scale = Vector2(0.3, 0.3)
+
+[node name="platformbw3_2" parent="Level2" instance=ExtResource("18_x8oxx")]
+position = Vector2(40.444427, -264.88892)
+rotation = 3.1415927
+scale = Vector2(0.3, 0.3)
+
+[node name="GrapplePoint7" parent="Level2" instance=ExtResource("2_vdeh8")]
+position = Vector2(-80.07409, 267.55566)
 scale = Vector2(0.1, 0.1)
+
+[node name="Spawn3" type="Marker2D" parent="Level2"]
+position = Vector2(137.25926, 163.33333)
+
+[node name="Teleport3" type="Area2D" parent="Level2" node_paths=PackedStringArray("destination_node")]
+script = ExtResource("5_jc2if")
+destination_node = NodePath("../Spawn3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/Teleport3"]
+position = Vector2(7.0371094, 232)
+shape = SubResource("RectangleShape2D_4o3qg")
+
+[node name="platformcolour0" parent="Level2" instance=ExtResource("20_bp6yj")]
+position = Vector2(-152.74074, -427.92593)
+scale = Vector2(0.4, 0.4)
+
+[node name="platformcolour2" parent="Level2" instance=ExtResource("21_nllk3")]
+position = Vector2(-142.66667, -556.5926)
+scale = Vector2(0.4, 0.4)
+
+[node name="platformcolour3" parent="Level2" instance=ExtResource("22_jam8s")]
+position = Vector2(16.740742, -482.6667)
+scale = Vector2(0.4, 0.4)
+
+[node name="platformcolour4" parent="Level2" instance=ExtResource("23_hyi7h")]
+position = Vector2(193.7037, -366.88885)
+scale = Vector2(0.4, 0.4)
+
+[node name="platformcolour5" parent="Level2" instance=ExtResource("22_jam8s")]
+position = Vector2(73.85185, -627.70374)
+scale = Vector2(0.4, 0.4)
+
+[node name="platformcolour6" parent="Level2" instance=ExtResource("22_jam8s")]
+position = Vector2(-76.148155, -728.2222)
+scale = Vector2(0.4, 0.4)
+
+[node name="platformcolour7" parent="Level2" instance=ExtResource("24_jam8s")]
+position = Vector2(-106.96297, -798.8889)
+scale = Vector2(0.4, 0.4)
+
+[node name="platformcolour8" parent="Level2" instance=ExtResource("24_jam8s")]
+position = Vector2(22.148138, -553.55554)
+rotation = 3.1415927
+scale = Vector2(0.4, 0.4)
+
+[node name="Bg5" type="Sprite2D" parent="."]
+position = Vector2(21616, -40814)
+scale = Vector2(6, 6)
+texture = ExtResource("24_nllk3")
+
+[node name="Teleport4" type="Area2D" parent="Bg5" node_paths=PackedStringArray("destination_node")]
+script = ExtResource("5_jc2if")
+destination_node = NodePath("../Spawn_final")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bg5/Teleport4"]
+position = Vector2(-0.25, 727.0835)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_jam8s")
+
+[node name="Spawn_final" type="Marker2D" parent="Bg5"]
+position = Vector2(-11.599999, 405.3)
+
+[node name="platformcolour3" parent="Bg5" instance=ExtResource("22_jam8s")]
+position = Vector2(-120.19999, 471.29996)
+scale = Vector2(0.4, 0.4)
+
+[node name="platformcolour3_2" parent="Bg5" instance=ExtResource("22_jam8s")]
+position = Vector2(-25.099998, 471.29993)
+scale = Vector2(0.4, 0.4)
+
+[node name="platformcolour3_3" parent="Bg5" instance=ExtResource("22_jam8s")]
+position = Vector2(71.6, 471.29993)
+scale = Vector2(0.4, 0.4)
+
+[node name="Area2D" type="Area2D" parent="Bg5"]
+script = ExtResource("3_vdeh8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bg5/Area2D"]
+position = Vector2(1.2004395, -0.60009766)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_hyi7h")
+
+[node name="Camera2D" type="Camera2D" parent="Bg5/Area2D"]
+position = Vector2(0, 68.49999)
+zoom = Vector2(0.127, 0.127)

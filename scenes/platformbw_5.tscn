@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2spv"]
 size = Vector2(231, 249)
 
-[node name="platformbw5" type="StaticBody2D"]
+[node name="platformbw5" type="StaticBody2D" groups=["climbable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)
