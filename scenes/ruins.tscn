@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://l74fmge4qy6i"]
+[gd_scene load_steps=41 format=3 uid="uid://l74fmge4qy6i"]
 
 [ext_resource type="PackedScene" uid="uid://xd3spey3oh72" path="res://scenes/player.tscn" id="1_08m1a"]
 [ext_resource type="Script" uid="uid://c5wrm2suo43o5" path="res://scripts/camerabounds.gd" id="1_k2k6q"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://w81dmvrcrxom" path="res://scenes/platformcolour_4.tscn" id="23_hyi7h"]
 [ext_resource type="PackedScene" uid="uid://4xdia17q1ue7" path="res://assets/platforms/platformcolour_6.tscn" id="24_jam8s"]
 [ext_resource type="Texture2D" uid="uid://cov5rmhmnkodl" path="res://assets/bgs/bg5.png" id="24_nllk3"]
+[ext_resource type="PackedScene" uid="uid://bh5kn1o6j2eip" path="res://scenes/bg_music.tscn" id="26_hyi7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdeh8"]
 size = Vector2(5107.25, 104.75)
@@ -430,3 +431,5 @@ shape = SubResource("RectangleShape2D_hyi7h")
 [node name="Camera2D" type="Camera2D" parent="Bg5/Area2D"]
 position = Vector2(0, 68.49999)
 zoom = Vector2(0.127, 0.127)
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("26_hyi7h")]
