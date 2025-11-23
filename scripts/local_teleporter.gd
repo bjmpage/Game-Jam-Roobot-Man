@@ -14,16 +14,21 @@ func _on_body_entered(body: Node2D) -> void:
 			# 1. Teleport the player
 			body.global_position = destination_node.global_position
 			
-			# 2. Reset Player State (Optional but recommended)
+			# 2. Reset Player State
 			# This stops them from sliding/grappling *out* of the teleport
 			if body.has_method("reset_state"):
 				body.reset_state()
 				
-			# 3. Camera Snap (Prevent camera "swooshing" across the map)
-			# If you use camera smoothing, we need to reset it instantly
+			# 3. Reset Camera Smoothing
+			# Prevents the camera from "swooshing" across the map to the new spot
 			var cam = body.find_child("Camera2D")
 			if cam and cam is Camera2D:
 				cam.reset_smoothing()
+			
+			# 4. UPDATE RESPAWN POINT (New Feature)
+			# Now, if they fall into a pit later, they will respawn HERE
+			if body.has_method("update_respawn_point"):
+				body.update_respawn_point(destination_node.global_position)
 				
 		else:
 			print("ERROR: No destination assigned for teleporter: ", name)
