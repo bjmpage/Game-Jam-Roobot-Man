@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh5kn1o6j2eip"]
+
+[ext_resource type="AudioStream" uid="uid://ccxcg23pierqb" path="res://solitude-dark-ambient-music-354468.mp3" id="1_lhcrd"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_lhcrd")
+volume_db = -15.5
+autoplay = true
