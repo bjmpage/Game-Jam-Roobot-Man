@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var player: Sprite2D = $Sprite2D
+@onready var player: AnimatedSprite2D = $AnimatedSprite2D
 @onready var stand_shape: CollisionShape2D = $CollisionShape2D
 @onready var slide_shape: CollisionShape2D = $SlideShape
 @onready var head_check: RayCast2D = $RayCast2D
@@ -33,6 +33,8 @@ var current_grapple_target: Area2D = null
 var is_grappling: bool = false
 var is_sliding: bool = false
 
+var facingRight: bool = false
+
 # RESPAWN SYSTEM
 var respawn_position: Vector2 = Vector2.ZERO
 
@@ -61,11 +63,16 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# 1. SPECIAL STATES (Grapple/Slide)
 	if is_grappling:
+		
 		_process_grapple_movement(delta)
 		move_and_slide()
 		return
 		
 	if is_sliding:
+		if player.animation != "slideLeft" and not facingRight:
+			player.play("slideLeft")
+		if player.animation != "slideRight" and facingRight:
+			player.play("slideRight")
 		_process_slide(delta)
 		move_and_slide()
 		return
@@ -94,7 +101,7 @@ func _physics_process(delta: float) -> void:
 			
 		var direction := Input.get_axis("move_left", "move_right")
 		if direction:
-			player.flip_h = direction > 0
+			facingRight = direction > 0
 			velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta)
 		else:
 			velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
@@ -106,8 +113,36 @@ func _physics_process(delta: float) -> void:
 		elif is_on_wall():
 			velocity.y = WALL_JUMP_VELOCITY
 			velocity.x = get_wall_normal().x * WALL_JUMP_PUSHBACK
-			player.flip_h = get_wall_normal().x > 0
-
+			facingRight = get_wall_normal().x > 0
+	
+	if velocity.x == 0:
+		if facingRight and player.animation != "idleRight":
+			player.play("idleRight")
+		
+		if !facingRight and player.animation != "idleLeft":
+			player.play("idleLeft")
+	elif not is_sliding and not is_grappling and is_on_floor() and not is_climbing:
+		if facingRight and player.animation != "runRight":
+			player.play("runRight")
+		if !facingRight and player.animation != "runLeft":
+			player.play("runLeft")
+	elif is_climbing:
+		if facingRight and player.animation != "climbRight":
+			player.play("climbRight")
+		if !facingRight and player.animation != "climbLeft":
+			player.play("climbLeft")
+	
+	if velocity.y != 0.0 and !is_grappling:
+		if facingRight and player.animation != "climbRight":
+			player.play("climbRight")
+		if !facingRight and player.animation != "climbLeft":
+			player.play("climbLeft")
+			
+	if is_grappling:
+		if facingRight and player.animation != "grappleRight":
+			player.play("grappleRight")
+		if !facingRight and player.animation != "grappleLeft":
+			player.play("grappleLeft")
 	move_and_slide()
 
 
@@ -190,7 +225,7 @@ func start_slide() -> void:
 	var input_dir = Input.get_axis("move_left", "move_right")
 	if input_dir != 0:
 		velocity.x = input_dir * SLIDE_SPEED
-		player.flip_h = input_dir > 0
+		facingRight = input_dir > 0
 	elif abs(velocity.x) > 10.0:
 		velocity.x = sign(velocity.x) * SLIDE_SPEED
 	else:
@@ -239,7 +274,7 @@ func finish_slide() -> void:
 	if head_check.is_colliding():
 		# If we are stuck, give a little nudge
 		if velocity.x == 0: 
-			velocity.x = 100 * (1 if player.flip_h else -1)
+			velocity.x = 100 * (1 if facingRight else -1)
 		return 
 		
 	is_sliding = false
