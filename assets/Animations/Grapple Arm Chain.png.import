@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://esvl1uq0o2aw"
-path="res://.godot/imported/Grapple Arm Chain.png-50146ba23b6536f67aeb10beee33aae2.ctex"
+path="res://.godot/imported/Grapple Arm Chain.png-a809c27aee575e387b925bd0809f6484.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animations/Grapple Arm Chain.png"
-dest_files=["res://.godot/imported/Grapple Arm Chain.png-50146ba23b6536f67aeb10beee33aae2.ctex"]
+source_file="res://assets/Animations/Grapple Arm Chain.png"
+dest_files=["res://.godot/imported/Grapple Arm Chain.png-a809c27aee575e387b925bd0809f6484.ctex"]
 
 [params]
 

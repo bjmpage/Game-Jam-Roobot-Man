@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2naalwsrf473"
-path="res://.godot/imported/Grapple Left.png-e8460ceb8c84a1e8f8c1f3bdc8bcf8b8.ctex"
+path="res://.godot/imported/Grapple Left.png-af2a49ca3b366457356385cc2fe1deae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animations/Grapple Left.png"
-dest_files=["res://.godot/imported/Grapple Left.png-e8460ceb8c84a1e8f8c1f3bdc8bcf8b8.ctex"]
+source_file="res://assets/Animations/Grapple Left.png"
+dest_files=["res://.godot/imported/Grapple Left.png-af2a49ca3b366457356385cc2fe1deae.ctex"]
 
 [params]
 
