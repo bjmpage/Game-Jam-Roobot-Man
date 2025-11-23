@@ -1,0 +1,165 @@
+[gd_scene load_steps=18 format=3 uid="uid://l74fmge4qy6i"]
+
+[ext_resource type="PackedScene" uid="uid://xd3spey3oh72" path="res://scenes/player.tscn" id="1_08m1a"]
+[ext_resource type="Texture2D" uid="uid://v06ictdnogkk" path="res://assets/bgs/bg_0a.png" id="2_08m1a"]
+[ext_resource type="Script" uid="uid://wojbmhtchbno" path="res://scripts/fixed_cameras.gd" id="3_vdeh8"]
+[ext_resource type="Texture2D" uid="uid://528m4lwjbgjw" path="res://assets/bgs/bg_0b.png" id="4_ll68y"]
+[ext_resource type="Texture2D" uid="uid://dfbpvk66d53m2" path="res://assets/bgs/bg3.png" id="5_ansty"]
+[ext_resource type="Script" uid="uid://bwj6ixeq8823i" path="res://scripts/local_teleporter.gd" id="5_jc2if"]
+[ext_resource type="PackedScene" uid="uid://b2vxdpmgplhyn" path="res://scenes/platformbw0.tscn" id="7_5e6vo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdeh8"]
+size = Vector2(5489.25, 104.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ll68y"]
+size = Vector2(151.5, 957.7084)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ansty"]
+size = Vector2(3818.625, 1973)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5e6vo"]
+size = Vector2(5537, 2310.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8k310"]
+size = Vector2(1920, 2181)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc2if"]
+size = Vector2(4345, 1837)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxu7n"]
+size = Vector2(293.20068, 28.000183)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bit6c"]
+size = Vector2(62.675507, 62.724907)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2k6q"]
+size = Vector2(44.399902, 1494.7501)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xbwe"]
+size = Vector2(5120, 3370)
+
+[node name="Ruins" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_08m1a")]
+top_level = true
+position = Vector2(7267, 2245)
+scale = Vector2(4.5, 4.716)
+
+[node name="Bg0" type="Sprite2D" parent="."]
+position = Vector2(4753, 2018)
+scale = Vector2(3, 3)
+texture = ExtResource("2_08m1a")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bg0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bg0/StaticBody2D"]
+position = Vector2(2391.7085, 235)
+shape = SubResource("RectangleShape2D_vdeh8")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Bg0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bg0/StaticBody2D2"]
+position = Vector2(-386.75, -195.66669)
+shape = SubResource("RectangleShape2D_ll68y")
+
+[node name="BalconyZone" type="Area2D" parent="."]
+script = ExtResource("3_vdeh8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BalconyZone"]
+position = Vector2(2896.6875, 2204.5)
+shape = SubResource("RectangleShape2D_ansty")
+
+[node name="Camera2D" type="Camera2D" parent="BalconyZone"]
+position = Vector2(2538, 2499)
+zoom = Vector2(0.25, 0.25)
+
+[node name="Bg0b" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(14261.001, 1103)
+scale = Vector2(3, 3)
+texture = ExtResource("4_ll68y")
+
+[node name="PassageZone" type="Area2D" parent="."]
+script = ExtResource("3_vdeh8")
+
+[node name="Camera2D" type="Camera2D" parent="PassageZone"]
+position = Vector2(12133, 1168)
+zoom = Vector2(0.22, 0.22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PassageZone"]
+position = Vector2(11959.5, 1395.75)
+shape = SubResource("RectangleShape2D_5e6vo")
+
+[node name="Teleport" type="Area2D" parent="PassageZone" node_paths=PackedStringArray("destination_node")]
+script = ExtResource("5_jc2if")
+destination_node = NodePath("../Spawn_Room1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PassageZone/Teleport"]
+position = Vector2(18041, 1469.5)
+shape = SubResource("RectangleShape2D_8k310")
+
+[node name="Spawn_Room1" type="Marker2D" parent="PassageZone"]
+position = Vector2(19508, 2043)
+
+[node name="StartZone" type="Area2D" parent="."]
+position = Vector2(-6078, -2992)
+script = ExtResource("3_vdeh8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartZone"]
+position = Vector2(13070.5, 4632.5)
+shape = SubResource("RectangleShape2D_jc2if")
+
+[node name="Camera2D" type="Camera2D" parent="StartZone"]
+position = Vector2(13273, 4467)
+zoom = Vector2(0.25, 0.25)
+
+[node name="Bg3" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(21607.002, -4182.0005)
+scale = Vector2(10, 10)
+texture = ExtResource("5_ansty")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bg3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bg3/StaticBody2D"]
+position = Vector2(80.40039, 695.09973)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_nxu7n")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Bg3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bg3/StaticBody2D2"]
+position = Vector2(227.9375, 671.86237)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_bit6c")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Bg3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bg3/StaticBody2D3"]
+position = Vector2(255.59981, -26.299963)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_k2k6q")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Bg3"]
+position = Vector2(-522.7002, -54.099945)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bg3/StaticBody2D4"]
+position = Vector2(283.2, -22.500011)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_k2k6q")
+
+[node name="StaticBody2D5" parent="Bg3" instance=ExtResource("7_5e6vo")]
+top_level = true
+position = Vector2(19662, 2811)
+scale = Vector2(6, 6)
+
+[node name="Climb_0" type="Area2D" parent="."]
+script = ExtResource("3_vdeh8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Climb_0"]
+position = Vector2(21644, 1395)
+shape = SubResource("RectangleShape2D_6xbwe")
+
+[node name="Camera2D" type="Camera2D" parent="Climb_0"]
+position = Vector2(21624, 1387)
+zoom = Vector2(0.225, 0.225)

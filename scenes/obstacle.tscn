@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn50c64tbbfuq"]
+
+[ext_resource type="Script" uid="uid://b0xsfuk2uxbbs" path="res://scripts/obstacle.gd" id="1_7ukg5"]
+
+[node name="Obstacle" type="StaticBody2D"]
+script = ExtResource("1_7ukg5")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-189, -45, -165.5, -64, -138.5, -67.5, -76, -55.5, -5, -19.5, 51, 8.5, 100, 29.5, 159.5, 35.5, 210.5, 55, 165.5, 71.5, 112, 78, 12.5, 82, -56, 74, -116.5, 67, -182.5, 66.5, -202.5, 57, -222.5, 32, -227.5, 9, -220, -19.5, -205, -30.5)
+uv = PackedVector2Array(-189, -45, -165.5, -64, -138.5, -67.5, -76, -55.5, -5, -19.5, 51, 8.5, 100, 29.5, 159.5, 35.5, 210.5, 55, 165.5, 71.5, 112, 78, 12.5, 82, -56, 74, -116.5, 67, -182.5, 66.5, -202.5, 57, -222.5, 32, -227.5, 9, -220, -19.5, -205, -30.5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-189, -45, -165.5, -64, -138.5, -67.5, -76, -55.5, -5, -19.5, 51, 8.5, 100, 29.5, 159.5, 35.5, 210.5, 55, 165.5, 71.5, 112, 78, 12.5, 82, -56, 74, -116.5, 67, -182.5, 66.5, -202.5, 57, -222.5, 32, -227.5, 9, -220, -19.5, -205, -30.5)

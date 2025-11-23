@@ -1,0 +1,144 @@
+[gd_scene load_steps=12 format=3 uid="uid://r14thae8g1t2"]
+
+[ext_resource type="PackedScene" uid="uid://xd3spey3oh72" path="res://scenes/player.tscn" id="1_4xfga"]
+[ext_resource type="Texture2D" uid="uid://in36186psha3" path="res://parallax_test/parallax-00.png" id="2_2klcf"]
+[ext_resource type="Texture2D" uid="uid://dwaxw4dyk2o4q" path="res://parallax_test/parallax-01.png" id="3_2lpho"]
+[ext_resource type="Texture2D" uid="uid://h7vpcaqhvpb0" path="res://parallax_test/parallax-02.png" id="4_nakos"]
+[ext_resource type="Texture2D" uid="uid://30xyx6hhqaea" path="res://parallax_test/parallax-03.png" id="5_jh32y"]
+[ext_resource type="PackedScene" uid="uid://t3kw0k6u2f3s" path="res://scenes/grapple_point.tscn" id="6_2lpho"]
+[ext_resource type="PackedScene" uid="uid://cn50c64tbbfuq" path="res://scenes/obstacle.tscn" id="7_nakos"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xfga"]
+size = Vector2(1057, 129)
+
+[sub_resource type="QuadMesh" id="QuadMesh_paxxb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2klcf"]
+size = Vector2(106, 275)
+
+[sub_resource type="QuadMesh" id="QuadMesh_2lpho"]
+size = Vector2(100, 50)
+
+[node name="Map" type="Node2D"]
+
+[node name="Platform" type="StaticBody2D" parent="."]
+z_index = 1
+position = Vector2(-5989, 318)
+scale = Vector2(14.740731, 0.684326)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(580.5, 558.5)
+shape = SubResource("RectangleShape2D_4xfga")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
+self_modulate = Color(0.1302081, 0.17480865, 0.2445156, 1)
+position = Vector2(580, 560.00006)
+scale = Vector2(-1061.1417, 134.09998)
+mesh = SubResource("QuadMesh_paxxb")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scale = Vector2(1.809113, 1.809113)
+scroll_scale = Vector2(0.1, 0.1)
+scroll_offset = Vector2(0, -485)
+repeat_size = Vector2(1440, 0)
+repeat_times = 5
+
+[node name="Parallax00" type="Sprite2D" parent="Parallax2D"]
+z_index = -1
+position = Vector2(720, 466)
+texture = ExtResource("2_2klcf")
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scale = Vector2(1.809113, 1.809113)
+scroll_scale = Vector2(0.1, 0.1)
+scroll_offset = Vector2(0, -519)
+repeat_size = Vector2(1440, 0)
+repeat_times = 5
+
+[node name="Parallax01" type="Sprite2D" parent="Parallax2D2"]
+position = Vector2(720, 468)
+texture = ExtResource("3_2lpho")
+
+[node name="Parallax2D3" type="Parallax2D" parent="."]
+scale = Vector2(1.809113, 1.809113)
+scroll_scale = Vector2(0.1, 0.1)
+scroll_offset = Vector2(0, -519)
+repeat_size = Vector2(1440, 0)
+repeat_times = 5
+
+[node name="Parallax02" type="Sprite2D" parent="Parallax2D3"]
+position = Vector2(720, 468)
+texture = ExtResource("4_nakos")
+
+[node name="Parallax2D4" type="Parallax2D" parent="."]
+scale = Vector2(1.809113, 1.809113)
+scroll_scale = Vector2(0.1, 0.1)
+scroll_offset = Vector2(0, -519)
+repeat_size = Vector2(1440, 0)
+repeat_times = 5
+
+[node name="Parallax03" type="Sprite2D" parent="Parallax2D4"]
+position = Vector2(720, 469)
+texture = ExtResource("5_jh32y")
+
+[node name="Platform2" type="StaticBody2D" parent="." groups=["climbable"]]
+position = Vector2(20, -199)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(2013, 385.5)
+shape = SubResource("RectangleShape2D_2klcf")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
+self_modulate = Color(0.29803923, 0.32156864, 0.3647059, 1)
+position = Vector2(2012, 383)
+scale = Vector2(1.0600007, 5.5199995)
+mesh = SubResource("QuadMesh_2lpho")
+
+[node name="Platform3" type="StaticBody2D" parent="." groups=["climbable"]]
+position = Vector2(429, -96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+position = Vector2(2010, 387)
+shape = SubResource("RectangleShape2D_2klcf")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform3"]
+self_modulate = Color(0.29803923, 0.32156864, 0.3647059, 1)
+position = Vector2(2010.5001, 386.5)
+scale = Vector2(1.050001, 5.5)
+mesh = SubResource("QuadMesh_2lpho")
+
+[node name="Player" parent="." instance=ExtResource("1_4xfga")]
+position = Vector2(1633, 532)
+scale = Vector2(1.5, 1.572)
+
+[node name="GrapplePoint" parent="." instance=ExtResource("6_2lpho")]
+position = Vector2(1154, 264)
+scale = Vector2(0.2, 0.2)
+
+[node name="GrapplePoint2" parent="." instance=ExtResource("6_2lpho")]
+position = Vector2(294.00003, 85.00003)
+scale = Vector2(0.2, 0.2)
+
+[node name="GrapplePoint3" parent="." instance=ExtResource("6_2lpho")]
+position = Vector2(-222.99988, 483)
+scale = Vector2(0.2, 0.2)
+
+[node name="Platform4" type="StaticBody2D" parent="." groups=["climbable"]]
+position = Vector2(726, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4"]
+position = Vector2(2010, 387)
+shape = SubResource("RectangleShape2D_2klcf")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform4"]
+self_modulate = Color(0.29803923, 0.32156864, 0.3647059, 1)
+position = Vector2(2010.5001, 386.5)
+scale = Vector2(1.050001, 5.5)
+mesh = SubResource("QuadMesh_2lpho")
+
+[node name="GrapplePoint4" parent="." instance=ExtResource("6_2lpho")]
+position = Vector2(-1496, 177)
+scale = Vector2(0.2, 0.2)
+
+[node name="Obstacle" parent="." instance=ExtResource("7_nakos")]
+position = Vector2(-980, 311)

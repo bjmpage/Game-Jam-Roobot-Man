@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://t3kw0k6u2f3s"]
+
+[ext_resource type="Texture2D" uid="uid://dr3rms2i01pou" path="res://assets/grapplehook.png" id="1_gaaoi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5pw1"]
+radius = 253.89958
+
+[node name="GrapplePoint" type="Area2D" groups=["grapple_points"]]
+
+[node name="Grapplehook" type="Sprite2D" parent="."]
+texture = ExtResource("1_gaaoi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o5pw1")

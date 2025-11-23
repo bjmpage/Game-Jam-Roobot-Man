@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://xd3spey3oh72"]
+
+[ext_resource type="Texture2D" uid="uid://bs0xt2d8kfk7u" path="res://assets/playersprite.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://gh5yft8sumst" path="res://scripts/player.gd" id="1_g2els"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(22.966885, 111.86996)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 300.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(62, 46.755722)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(1, 1.048)
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color(0.06666667, 0.03529412, 1, 1)
+top_level = true
+position = Vector2(1, 11.0650215)
+scale = Vector2(1.0014417, 1)
+shape = SubResource("RectangleShape2D_g2els")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2.008)
+texture = ExtResource("1_3vyb7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -100)
+zoom = Vector2(0.3, 0.3)
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_g2els")
+
+[node name="SlideShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 41.030537)
+shape = SubResource("RectangleShape2D_qhqgy")
+disabled = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
+modulate = Color(0.5500365, 0, 0.085978664, 1)
+self_modulate = Color(0.52353066, 2.5870278e-07, 3.3691526e-07, 1)
+target_position = Vector2(0, -200)
+
+[connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
+[connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]
