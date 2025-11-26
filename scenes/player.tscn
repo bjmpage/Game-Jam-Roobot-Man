@@ -1,16 +1,17 @@
-[gd_scene load_steps=48 format=3 uid="uid://xd3spey3oh72"]
+[gd_scene load_steps=49 format=3 uid="uid://xd3spey3oh72"]
 
 [ext_resource type="Script" uid="uid://gh5yft8sumst" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://bln3a1dya820n" path="res://Animations/PlayerRunRight.png" id="2_g2els"]
-[ext_resource type="Texture2D" uid="uid://dw4ojlfkv3wdj" path="res://Animations/Climb Left.png" id="2_ur7pv"]
-[ext_resource type="Texture2D" uid="uid://6e33syophxmg" path="res://Animations/Climb Right.png" id="3_y4r1p"]
-[ext_resource type="Texture2D" uid="uid://c2naalwsrf473" path="res://Animations/Grapple Left.png" id="4_3v2ag"]
-[ext_resource type="Texture2D" uid="uid://cph6bxa7yiros" path="res://Animations/IdleLeft.png" id="4_d2wvv"]
-[ext_resource type="Texture2D" uid="uid://de0wdmsejwaa6" path="res://Animations/IdleRight.png" id="5_3v2ag"]
-[ext_resource type="Texture2D" uid="uid://dx41t0qlay2hf" path="res://Animations/Grapple Right.png" id="5_jej6c"]
-[ext_resource type="Texture2D" uid="uid://uhn8cujywae8" path="res://Animations/PlayerRunLeft.png" id="6_jej6c"]
-[ext_resource type="Texture2D" uid="uid://cm4qmlop3b8wd" path="res://Animations/SlideLeft.png" id="8_f1ej7"]
-[ext_resource type="Texture2D" uid="uid://b2wiqgc503360" path="res://Animations/SlideRight.png" id="9_oprun"]
+[ext_resource type="Texture2D" uid="uid://bln3a1dya820n" path="res://assets/Animations/PlayerRunRight.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://dw4ojlfkv3wdj" path="res://assets/Animations/Climb Left.png" id="2_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://6e33syophxmg" path="res://assets/Animations/Climb Right.png" id="3_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://c2naalwsrf473" path="res://assets/Animations/Grapple Left.png" id="4_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://cph6bxa7yiros" path="res://assets/Animations/IdleLeft.png" id="4_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://de0wdmsejwaa6" path="res://assets/Animations/IdleRight.png" id="5_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://dx41t0qlay2hf" path="res://assets/Animations/Grapple Right.png" id="5_jej6c"]
+[ext_resource type="Texture2D" uid="uid://uhn8cujywae8" path="res://assets/Animations/PlayerRunLeft.png" id="6_jej6c"]
+[ext_resource type="Texture2D" uid="uid://cm4qmlop3b8wd" path="res://assets/Animations/SlideLeft.png" id="8_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://b2wiqgc503360" path="res://assets/Animations/SlideRight.png" id="9_oprun"]
+[ext_resource type="Texture2D" uid="uid://esvl1uq0o2aw" path="res://assets/Animations/Grapple Arm Chain.png" id="12_3v2ag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(22.966885, 111.86996)
@@ -335,6 +336,12 @@ texture_filter = 1
 scale = Vector2(2, 2.008)
 sprite_frames = SubResource("SpriteFrames_d2wvv")
 animation = &"grappleLeft"
+
+[node name="GrappleLine" type="Line2D" parent="."]
+visible = false
+width = 512.0
+texture = ExtResource("12_3v2ag")
+texture_mode = 1
 
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]

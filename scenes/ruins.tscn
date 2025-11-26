@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://l74fmge4qy6i"]
+[gd_scene load_steps=44 format=3 uid="uid://l74fmge4qy6i"]
 
 [ext_resource type="PackedScene" uid="uid://xd3spey3oh72" path="res://scenes/player.tscn" id="1_08m1a"]
 [ext_resource type="Script" uid="uid://c5wrm2suo43o5" path="res://scripts/camerabounds.gd" id="1_k2k6q"]
@@ -55,7 +55,7 @@ size = Vector2(62.675507, 62.724907)
 size = Vector2(44.399902, 3856.9756)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hyi7h"]
-font_size = 25
+font_size = 22
 font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xbwe"]
@@ -78,6 +78,10 @@ size = Vector2(1535.3002, 444.16663)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyi7h"]
 size = Vector2(1532.7998, 1023.00024)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i5q2e"]
+font_size = 45
+font_color = Color(1, 1, 0.23529412, 1)
 
 [node name="Ruins" type="Node2D"]
 script = ExtResource("1_k2k6q")
@@ -130,27 +134,27 @@ scale = Vector2(3, 3)
 texture = ExtResource("4_ll68y")
 
 [node name="Label2" type="Label" parent="Bg0b"]
-offset_left = -1200.0004
-offset_top = 351.0
-offset_right = -356.0003
-offset_bottom = 420.0
-text = "<Space> JUMP"
+offset_left = -1339.0004
+offset_top = 352.66666
+offset_right = -495.0003
+offset_bottom = 421.66666
+text = "<Space>   JUMP"
 label_settings = SubResource("LabelSettings_jam8s")
 
 [node name="Label3" type="Label" parent="Bg0b"]
-offset_left = 115.33302
-offset_top = 251.33333
-offset_right = 959.33307
-offset_bottom = 392.3333
+offset_left = -73.33365
+offset_top = 281.66666
+offset_right = 770.6664
+offset_bottom = 422.66666
 text = "<S>   SLIDE
-<S + Space>    SLIDE JUMP"
+<S + Space>  SLIDE JUMP"
 label_settings = SubResource("LabelSettings_jam8s")
 
 [node name="Label4" type="Label" parent="Bg0b"]
-offset_left = -698.3337
-offset_top = 19.000006
-offset_right = 207.66632
-offset_bottom = 88.00001
+offset_left = -964.667
+offset_top = 9.000006
+offset_right = -58.666992
+offset_bottom = 78.00001
 text = "<W> CLIMB ON CLIMBABLE OBJECTS"
 label_settings = SubResource("LabelSettings_jam8s")
 
@@ -493,5 +497,13 @@ shape = SubResource("RectangleShape2D_hyi7h")
 [node name="Camera2D" type="Camera2D" parent="Bg5/Area2D"]
 position = Vector2(0, 68.49999)
 zoom = Vector2(0.127, 0.127)
+
+[node name="Label" type="Label" parent="Bg5"]
+offset_left = -376.33334
+offset_top = -2.0
+offset_right = 382.66666
+offset_bottom = 61.0
+text = "AN INCREDIBLE JOURNEY AWAITS..."
+label_settings = SubResource("LabelSettings_i5q2e")
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("26_hyi7h")]
